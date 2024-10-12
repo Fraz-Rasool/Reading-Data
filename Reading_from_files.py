@@ -2,37 +2,38 @@ import json
 import pandas as pd
 import numpy as np
 
-def CSV():
-    path_csv = r"D:\Python\Data Reading\Files\CSV.csv"
-    df = pd.read_csv(path_csv)
+def CSV(path):
+    df = pd.read_csv(path)
     print(df)
+    # path_csv = r"D:\Python\Data Reading\Files\CSV.csv"
 
-def JSON():
-    path_json = r"D:\Python\Data Reading\Files\JSON.json"
-    with open(path_json,'r') as json_file:
+def JSON(path):
+    with open(path,'r') as json_file:
         df = json.load(json_file)
     print(df)
+    # path_json = r"D:\Python\Data Reading\Files\JSON.json"
 
-def Excel():
-    path_excel = r"D:\Python\Data Reading\Files\EXCEL.xlsx"
-    df = pd.read_excel(path_excel)
+def Excel(path):
+    df = pd.read_excel(path)
     print(df)
+    # path_excel = r"D:\Python\Data Reading\Files\EXCEL.xlsx"
 
-def Text():
-    path_txt = r"D:\Python\Data Reading\Files\Text.txt"
-    with open(path_txt,'r')as text_file:
+def Text(path):
+    with open(path,'r')as text_file:
         df = text_file.read();
     print(df)
+    # path_txt = r"D:\Python\Data Reading\Files\Text.txt"
 
 def Read(value):
+    path =input(r'Enter the path without "quotes":')
     if value==1:
-        CSV()
+        CSV(path)
     elif value==2:
-        JSON()
+        JSON(path)
     elif value==3:
-        Excel()
+        Excel(path)
     elif value==4:
-        Text()
+        Text(path)
     else:
         print("File not found")
 
@@ -40,4 +41,5 @@ value = int(input('''---Enter 1 to read CSV file---
 ---Enter 2 to read Json file---
 ---Enter 3 to read Excel file---
 ---Enter 4 to read Text file---\n'''))
+
 Read(value)
