@@ -1,11 +1,16 @@
 import mysql.connector
 
+host=input("Enter the host: ")
+user=input("Enter the username:")
+password=input("Enter the password:")
+database=input("Enter the name of the databse:")
+
 try:
     conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="5371240.Fr",
-        database="sakila"
+        host=host,
+        user=user,
+        password=password,
+        database=database
     )
 
     if conn.is_connected:
